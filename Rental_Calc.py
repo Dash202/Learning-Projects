@@ -18,9 +18,9 @@ else:
 	print("Please select a valid option.")
 	quit()
 years = int(input("What is the length of the loan? "))
-
+interest_rate = float(input("Current interest rate for the loan: "))
+interest_rate = interest_rate / 100
 gross_rent = rent * 12
-interest_rate = 0.05
 
 principal = price - downpayment
 #print(principal)
