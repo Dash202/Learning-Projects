@@ -1,3 +1,4 @@
+# Gather general details about the property:
 location = input("what is the address of this property? ")
 price = int(input("What is the asking price? "))
 rent = int(input("What is the expected rent per month? "))
@@ -6,6 +7,7 @@ print("1. Percentage")
 print("2. Specific Amount")
 down_type = float(input("Do you want to enter a percentage or specific amount? "))
 
+# Figure out the down payment amount:
 downpayment = int(0)
 if down_type == 1:
 	percent_down = input("Please enter the precentage: ")
@@ -17,6 +19,7 @@ elif down_type == 2:
 else:
 	print("Please select a valid option.")
 	quit()
+# Figure out the loan terms:
 years = int(input("What is the length of the loan? "))
 interest_rate = float(input("Current interest rate for the loan: "))
 interest_rate = interest_rate / 100
@@ -27,15 +30,19 @@ principal = price - downpayment
 mortgage_payment = (principal * (interest_rate * ((1 + interest_rate) ** years)) / ((1 + interest_rate) ** years - 1)) / 12
 #print(mortgage_payment)
 
+# General expenses to calculate:
 repairs = gross_rent * .10
 cap_ex = gross_rent * .10
 vacancy = gross_rent * .08
 
+# Need to validate the cash flow and cap rate to help determine 
 cash_flow = (gross_rent - (mortgage_payment + repairs + cap_ex + vacancy + prop_tax)) / 12
 cap_rate = (gross_rent / price) * 100
 
+# Calculate the minimum amount of cash needed to close on the deal, this includes the "sales tax" of 2.5% and agent fees:
 cash_required = downpayment + (price * .025) + (price * .03)
 
+# To verify what is considered a "great/good/bad" deal based on the estimated cap rate:
 analyzer = None
 if cap_rate >= 10:
 	analyzer = "this is a great deal!"
@@ -44,6 +51,7 @@ elif cap_rate >= 7:
 else:
 	analyzer = "this is a bad deal."
 
+# Send all this data to a text file for review later:
 f = open("Rentals.txt", "a")
 with open("Rentals.txt", "a") as f:
 	print("=========================", file=f)
