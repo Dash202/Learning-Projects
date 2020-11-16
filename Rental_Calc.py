@@ -35,7 +35,7 @@ repairs = gross_rent * .10
 cap_ex = gross_rent * .10
 vacancy = gross_rent * .08
 
-# Need to validate the cash flow and cap rate to help determine 
+# Need to validate the cash flow and cap rate to help determine the value of the deal:
 cash_flow = (gross_rent - (mortgage_payment + repairs + cap_ex + vacancy + prop_tax)) / 12
 cap_rate = (gross_rent / price) * 100
 
