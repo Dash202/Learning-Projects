@@ -12,9 +12,7 @@ if down_type == 1:
 	percent_down = float(percent_down) / 100
 	downpayment = int(price * percent_down)
 elif down_type == 2:
-
-	specific_down = input("Please enter the specific value: ")
-	specific_down = int(specific_down)
+	specific_down = int(input("Please enter the specific value: "))
 	downpayment = down_type
 else:
 	print("Please select a valid option.")
